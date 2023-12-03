@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative 'utilities'
+require_relative '../utilities'
 
 DIGIT_KEYS = %w[1 2 3 4 5 6 7 8 9 one two three four five six seven eight nine]
 CLEAN_KEY_MAP = {
@@ -55,4 +55,4 @@ def solve(filename)
 end
 
 
-solve("question_one")
+solve("solution_one/question_input")

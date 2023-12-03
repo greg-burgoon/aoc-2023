@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative 'utilities'
+require_relative '../utilities'
 def solve(filename)
   input = Utilities.parse_file(filename: filename)
   inputArray = input.split("\n")
@@ -21,4 +21,4 @@ def solve(filename)
 end
 
 
-solve("question_one")
+solve("solution_one/question_input")
