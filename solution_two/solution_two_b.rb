@@ -40,15 +40,8 @@ def solve(filename)
   input = Utilities.parse_file(filename: filename)
   gameMaps = parseInput(input)
 
-  limitMap = {
-    red: 12,
-    green: 13,
-    blue: 14
-  }
   gameMaps.map! do  |game|
-    game[:id].to_i unless game[:red].max > limitMap[:red] || game[:green].max > limitMap[:green] || game[:blue].max > limitMap[:blue]
-  end.select! do |id|
-    id != nil
+    (game[:red].max * game[:green].max * game[:blue].max).to_i
   end
   print gameMaps.sum
 end
