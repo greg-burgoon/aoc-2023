@@ -7,7 +7,7 @@ RED = " red"
 BLUE = " blue"
 GREEN = " green"
 
-def parseInput(input)
+def parse_input(input)
   inputArray = input.split("\n")
   return inputArray.map! {
     |line|
@@ -38,7 +38,7 @@ def parseInput(input)
 end
 def solve(filename)
   input = Utilities.parse_file(filename: filename)
-  gameMaps = parseInput(input)
+  gameMaps = parse_input(input)
 
   limitMap = {
     red: 12,
