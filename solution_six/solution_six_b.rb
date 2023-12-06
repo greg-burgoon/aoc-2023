@@ -19,6 +19,19 @@ def parse_input(input)
   }
   races
 end
+
+def find_first_record_break(max_time, record_distance, enumerable)
+  new_record = nil
+  enumerable.each { | time_instance |
+      distance = time_instance *(max_time - time_instance)
+    if (distance > record_distance)
+      new_record = time_instance
+      break;
+    end
+  }
+  new_record
+end
+
 def solve(filename)
   input = Utilities.parse_file(filename: filename)
   races = parse_input(input)
@@ -29,22 +42,8 @@ def solve(filename)
   end
   max_time = race[:time].to_i
   record_distance = race[:distance].to_i
-  new_record_start = 0
-  (0..max_time).each { | time_instance |
-    distance = time_instance*(max_time - time_instance)
-    if (distance > record_distance)
-      new_record_start = time_instance
-      break;
-    end
-  }
-  new_record_end = max_time
-  max_time.downto(0).each { | time_instance |
-    distance = time_instance*(max_time - time_instance)
-    if (distance > record_distance)
-      new_record_end = time_instance
-      break;
-    end
-  }
+  new_record_start = find_first_record_break(max_time, record_distance, (0..max_time).to_a)
+  new_record_end =  find_first_record_break(max_time, record_distance, max_time.downto(0).to_a)
 
   new_record_count = new_record_end - new_record_start + 1
   new_record_count
