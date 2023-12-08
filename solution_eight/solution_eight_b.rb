@@ -61,7 +61,7 @@ def solve(filename)
     count_maps.map { |el| el[index]}
   }
 
-  print(direction_map.map{ |el| el.map{|el| el==0 ? 1 : el}.reduce(1, :lcm) }.reduce(1, :lcm))
+  print(direction_map.map{ |el| el.map{|el| el==0 ? 1 : el}.reduce(1, :lcm) }.select{|el| el != 1}.min)
 end
 
 
